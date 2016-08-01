@@ -1,0 +1,15 @@
+{
+  "name": "synology-api",
+  "version": "1.0.0",
+  "description": "Node app to communicate with Synology NAS",
+  "main": "SynologyAPI.js",
+  "scripts": {
+    "start": "node SynologyAPI.js"
+  },
+  "author": "Jonathan Roze",
+  "license": "ISC",
+  "dependencies": {
+    "http-request": "^0.7.0",
+    "promise": "^7.1.1"
+  }
+}
