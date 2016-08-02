@@ -1,9 +1,11 @@
 const HTTP = require("http-request");
-const Utils = require("./../../Modules/Utils/GenericUtils.js");
+const Utils = require("./../../Modules/Utils/genericUtils.js");
 var Promise = require('promise');
 
 
 function Auth(server) {
+
+
     this.server = server;
     this.URI = Utils.CreateURI(server);
     this.lol = "lol";
@@ -12,6 +14,7 @@ function Auth(server) {
         "SYNO.API.Auth": false,
         "SYNO.DownloadStation2": false
     };
+
 
 
 }
@@ -25,44 +28,44 @@ Auth.prototype.getServerSettings = function() {
 }
 
 
-Auth.prototype.Logout = function(){
+Auth.prototype.Logout = function() {
 
-    return new Promise(function(resolve,reject){
+    return new Promise(function(resolve, reject) {
 
 
-                    HTTP.get(NAS.URI + "/webapi/auth.cgi?api=SYNO.API.Auth&version=1&method=logout&session=DownloadStation", function(err, res) {
-                        if (err) {
+        HTTP.get(NAS.URI + "/webapi/auth.cgi?api=SYNO.API.Auth&version=1&method=logout&session=DownloadStation", function(err, res) {
+            if (err) {
 
-                    reject( {
-                        "Succes": false,
+                reject({
+                    "Succes": false,
+                });
+
+
+
+            } else {
+
+                var content = JSON.parse(res.buffer.toString())
+
+                if (content.success) {
+
+                    resolve({
+                        "Success": true,
                     });
 
-                        
+                } else {
 
-                        } else {
-
-                            var content = JSON.parse(res.buffer.toString())
-
-                            if (content.success) {
-
-                                resolve( {
-                                    "Success" : true,
-                                });
-
-                            } else {
-
-                                reject( {
-                                    "Success": false,
-                                    "Message": Error[content.error.code]
-                                });
-
-
-                            }
-
-
-                        }
-
+                    reject({
+                        "Success": false,
+                        "Message": Error[content.error.code]
                     });
+
+
+                }
+
+
+            }
+
+        });
 
     });
 
@@ -79,10 +82,10 @@ Auth.prototype.Connect = function() {
             if (err) {
 
                 //A FINIR
-                reject( {
-                        "Succes": false,
-                        "Message": "Authentifcation API is not avaiable"
-                    });
+                reject({
+                    "Succes": false,
+                    "Message": "Authentifcation API is not avaiable"
+                });
             } else {
                 var content = JSON.parse(res.buffer.toString())
 
@@ -123,12 +126,12 @@ Auth.prototype.Connect = function() {
                     HTTP.get(NAS.URI + "/webapi/auth.cgi?api=SYNO.API.Auth&version=2&method=login&account=" + NAS.server.username + "&passwd=" + NAS.server.password + "&session=DownloadStation&format=cookie", function(err, res) {
                         if (err) {
 
-                    reject( {
-                        "Succes": false,
-                        // "Message": Error[content.error.code]
-                    });
+                            reject({
+                                "Succes": false,
+                                // "Message": Error[content.error.code]
+                            });
 
-                            
+
 
 
                         } else {
@@ -138,14 +141,14 @@ Auth.prototype.Connect = function() {
                             if (content.success) {
 
                                 NAS.server.token = content.data.sid;
-                                resolve( {
-                                    "Success" : true,
-                                    "Message" : "Connected"
+                                resolve({
+                                    "Success": true,
+                                    "Message": "Connected"
                                 });
 
                             } else {
 
-                                reject( {
+                                reject({
                                     "Success": false,
                                     "Message": Error[content.error.code]
                                 });
@@ -165,7 +168,7 @@ Auth.prototype.Connect = function() {
                         console.log("Authentifcation API is not avaiable")
                     }
 
-                    reject( {
+                    reject({
                         "Succes": false,
                         "Message": "Authentifcation API is not avaiable"
                     });

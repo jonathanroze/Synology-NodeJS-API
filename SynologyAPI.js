@@ -1,6 +1,7 @@
 const Utils = require("./Modules/Utils/GenericUtils.js");
 const colors = require('colors');
 const AuthClass = require("./Modules/Auth/auth.js")
+const DownloadStationClass = require("./Modules/DownloadStation/ds.js")
 
 
 // ConstructoIr
@@ -108,10 +109,15 @@ function SynologyAPI(protocol, address, port, username, password, debug) {
 
     // //If all is good
 
-   if(debug){ console.log("Your Synology object is okay".green)}
+    if (debug) {
+        console.log("Your Synology object is okay".green)
+    }
     this.server.success = true;
 
+
     this.Auth = new AuthClass(this.server);
+    this.DS = new DownloadStationClass(this.server, this.Auth);
+
 
 }
 
@@ -120,3 +126,4 @@ function SynologyAPI(protocol, address, port, username, password, debug) {
 // export the class
 module.exports = SynologyAPI;
 module.exports.Auth = this.Auth;
+module.exports.DS = this.DS;

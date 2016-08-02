@@ -1,5 +1,4 @@
-var syno = require ("./SynologyAPI");
-
+var syno = require("./synologyAPI");
 
 
 var data = new syno(
@@ -12,18 +11,35 @@ var data = new syno(
 
 
 data.Auth.Connect().then(function(value) {
-  console.log("Connecté!"); 
+    console.log("Connecté!");
+
+    data.DS.getTasks().then(function(value) {
+
+        console.log("Success : " + value)
+
+    }, function(reason) {
+
+        console.log("Error : " + reason.Message)
+
+    })
+
 
 
 }, function(reason) {
-  console.log("Error : "+reason.Message);
+    console.log("Error : " + reason.Message);
 
 });
 
 
 
 
-//     data.Auth.Logout().then(function(data){
+
+
+
+
+
+
+// data.Auth.Logout().then(function(data){
 //       console.log("Deconnecté")
 //   },function(reason){
 //           console.log("Pas Deconnecté")  
