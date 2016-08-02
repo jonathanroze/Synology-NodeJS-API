@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Node app to communicate with Synology NAS",
   "main": "SynologyAPI.js",
+  "keywords": [
+    "nodeJS","Synology","API","DownloadStation","Auth","FileStation","VideoStation"
+  ],
   "scripts": {
     "start": "node SynologyAPI.js"
   },
@@ -12,4 +15,5 @@
     "http-request": "^0.7.0",
     "promise": "^7.1.1"
   }
+  
 }

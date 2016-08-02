@@ -1,7 +1,7 @@
-var syno = require("./synologyAPI");
+var Syno = require("./synologyAPI");
 
 
-var data = new syno(
+var syno = new Syno(
     protocol = "HTTP",
     address = "192.168.0.20",
     port = "5000",
@@ -10,12 +10,18 @@ var data = new syno(
     debug = true);
 
 
-data.Auth.Connect().then(function(value) {
+syno.Auth.Connect().then(function(value) {
     console.log("Connecté!");
 
-    data.DS.getTasks().then(function(value) {
+    syno.DS.getTasks().then(function(value) {
 
-        console.log("Success : " + value)
+        console.log("Success : " + value.Success)
+
+        for(var task in value.Tasks){
+            console.log(value.Tasks[task].id)
+        }
+
+
 
     }, function(reason) {
 
