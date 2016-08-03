@@ -5,7 +5,8 @@ var Promise = require('promise');
 function DownloadStation(server, auth) {
     this.server = server;
     this.auth = auth;
-    this.URI = Utils.CreateURI(server);
+    this.utils = new Utils();
+    this.URI = this.utils.CreateURI(server);
 
 }
 

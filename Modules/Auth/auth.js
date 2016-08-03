@@ -5,9 +5,9 @@ var Promise = require('promise');
 
 function Auth(server) {
 
-
+    this.utils = new Utils();
     this.server = server;
-    this.URI = Utils.CreateURI(server);
+    this.URI = this.utils.CreateURI(server);
     this.lol = "lol";
     this.Errors = ["DownloadSttion", ];
     this.needs = {

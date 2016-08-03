@@ -20,6 +20,7 @@ const DownloadStationClass = require("./Modules/DownloadStation/ds.js")
 function SynologyAPI(protocol, address, port, username, password, debug) {
 
 
+    this.utils = new Utils();
     this.server = {
         protocol: "",
         address: "",
@@ -51,7 +52,7 @@ function SynologyAPI(protocol, address, port, username, password, debug) {
     }
 
     //Address verification
-    if (Utils.IpValidator(address)) {
+    if (this.utils.IpValidator(address)) {
         if (this.server.debug) {
             console.log("Address : " + address)
         }
