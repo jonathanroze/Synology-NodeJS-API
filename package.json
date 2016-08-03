@@ -1,6 +1,6 @@
 {
   "name": "synology-api",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Node app to communicate with Synology NAS",
   "main": "SynologyAPI.js",
   "keywords": [
@@ -12,12 +12,11 @@
     "FileStation",
     "VideoStation"
   ],
-
   "scripts": {
     "start": "node SynologyAPI.js"
   },
   "repository": {
-    "git":"https://github.com/Clowning/Synology-NodeJS-API.git"
+    "git": "https://github.com/Clowning/Synology-NodeJS-API.git"
   },
   "author": "Jonathan Roze",
   "license": "ISC",
