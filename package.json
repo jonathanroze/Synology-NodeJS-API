@@ -12,8 +12,12 @@
     "FileStation",
     "VideoStation"
   ],
+
   "scripts": {
     "start": "node SynologyAPI.js"
+  },
+  "repository": {
+    "git":"https://github.com/Clowning/Synology-NodeJS-API.git"
   },
   "author": "Jonathan Roze",
   "license": "ISC",

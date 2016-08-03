@@ -121,6 +121,15 @@ Auth.prototype.Connect = function() {
                         "403": "2-step verification code required",
                         "404": "Failed to authentificate 2-step verification code",
 
+                        "100":"Unknown error",
+                        "101":"Invalid paramter",
+                        "102":"The requested API does not exist",
+                        "103":"The requested method does not exist",
+                        "104":"The requested version does not support the functionality",
+                        "105":"The logged in session does not have permission",
+                        "106":"Session timeout",
+                        "107":"Session interrupted by duplicate login"
+
                     };
 
                     HTTP.get(NAS.URI + "/webapi/auth.cgi?api=SYNO.API.Auth&version=2&method=login&account=" + NAS.server.username + "&passwd=" + NAS.server.password + "&session=DownloadStation&format=cookie", function(err, res) {
