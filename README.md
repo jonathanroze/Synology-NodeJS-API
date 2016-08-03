@@ -14,3 +14,7 @@ You can :
 Installation
 
 *A faire
+
+
+
+For documentation go to https://github.com/Clowning/Synology-NodeJS-API/wiki
