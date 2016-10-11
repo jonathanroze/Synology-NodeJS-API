@@ -13,7 +13,9 @@ You can :
 
 Installation
 
-*A faire
+```javascript
+npm install synology-api
+```
 
 
 
