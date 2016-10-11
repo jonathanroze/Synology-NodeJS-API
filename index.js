@@ -6,7 +6,7 @@ var syno = new Syno(
     address = "192.168.0.20",
     port = "5000",
     username = "admin",
-    password = "sopiket06",
+    password = "azerty",
     debug = true);
 
 

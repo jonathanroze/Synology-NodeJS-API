@@ -17,6 +17,19 @@ Installation
 npm install synology-api
 ```
 
+Create your Synology Object 
+
+```javascript
+
+var syno = new Syno(
+    protocol = "HTTP",
+    address = "192.168.0.0",
+    port = "5000",
+    username = "admin",
+    password = "password",
+    debug = true);
+
+```
 
 
 For documentation go to https://github.com/Clowning/Synology-NodeJS-API/wiki
