@@ -33,7 +33,7 @@ var syno = new Syno(
 
 Now, you can get all tasks from your Synology Nas like that 
 
-``javascript
+```javascript
 
 syno.Auth.Connect().then(function(value) {
     console.log("Your are connected!");
@@ -54,8 +54,6 @@ syno.Auth.Connect().then(function(value) {
         console.log("Error : " + reason.Message)
 
     })
-
-
 
 }, function(reason) {
     console.log("Error : " + reason.Message);
