@@ -9,7 +9,7 @@ function Auth(server) {
     this.server = server;
     this.URI = this.utils.CreateURI(server);
     this.lol = "lol";
-    this.Errors = ["DownloadSttion", ];
+    this.Errors = ["DownloadStation", ];
     this.needs = {
         "SYNO.API.Auth": false,
         "SYNO.DownloadStation2": false

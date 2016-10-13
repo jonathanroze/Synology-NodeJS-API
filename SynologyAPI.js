@@ -3,8 +3,7 @@ const colors = require('colors');
 const AuthClass = require("./Modules/Auth/auth.js")
 const DownloadStationClass = require("./Modules/DownloadStation/ds.js")
 
-
-// ConstructoIr
+// Constructor
 
 /**
  * Synology Settings
@@ -18,7 +17,6 @@ const DownloadStationClass = require("./Modules/DownloadStation/ds.js")
  */
 
 function SynologyAPI(protocol, address, port, username, password, debug) {
-
 
     this.utils = new Utils();
     this.server = {
@@ -121,7 +119,6 @@ function SynologyAPI(protocol, address, port, username, password, debug) {
 
 
 }
-
 
 
 // export the class

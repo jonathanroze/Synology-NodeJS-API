@@ -158,10 +158,6 @@ DownloadStation.prototype.isEligible = function() {
 
         }
 
-
-
-
-
     } else {
 
         if (this.server.debug == true) {
@@ -173,10 +169,6 @@ DownloadStation.prototype.isEligible = function() {
         }
 
     }
-
-
-
-
 
 }
 module.exports = DownloadStation;

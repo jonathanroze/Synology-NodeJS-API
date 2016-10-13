@@ -1,7 +1,7 @@
 {
   "name": "synology-api",
-  "version": "0.0.4",
-  "description": "Node app to communicate with Synology NAS",
+  "version": "1.0.4",
+  "description": "Node API to communicate with Synology NAS",
   "main": "SynologyAPI.js",
   "keywords": [
     "nodeJS",

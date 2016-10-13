@@ -1,14 +1,12 @@
 var Syno = require("./synologyAPI");
 
-
 var syno = new Syno(
     protocol = "HTTP",
-    address = "192.168.0.20",
+    address = "clowning.loginto.me", //IP Address or loginto.me address
     port = "5000",
     username = "admin",
-    password = "azerty",
+    password = "sopiket06",
     debug = true);
-
 
 syno.Auth.Connect().then(function(value) {
     console.log("Connecté!");
@@ -18,9 +16,14 @@ syno.Auth.Connect().then(function(value) {
         console.log("Success : " + value.Success)
 
         for(var task in value.Tasks){
-            console.log(value.Tasks[task].id)
+            console.log(value.Tasks[task])
         }
 
+            syno.Auth.Logout().then(function(data){
+                console.log("Deconnecté")
+            },function(reason){
+                    console.log("Pas Deconnecté")  
+            });
 
 
     }, function(reason) {
@@ -39,14 +42,3 @@ syno.Auth.Connect().then(function(value) {
 
 
 
-
-
-
-
-
-
-// data.Auth.Logout().then(function(data){
-//       console.log("Deconnecté")
-//   },function(reason){
-//           console.log("Pas Deconnecté")  
-//   });
