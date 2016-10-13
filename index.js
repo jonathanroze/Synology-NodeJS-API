@@ -9,29 +9,29 @@ var syno = new Syno(
     debug = true);
 
 syno.Auth.Connect().then(function(value) {
-    console.log("Connecté!");
+//     console.log("Connecté!");
 
-    syno.DS.getTasks().then(function(value) {
+//     syno.DS.getTasks().then(function(value) {
 
-        console.log("Success : " + value.Success)
+//         console.log("Success : " + value.Success)
 
-        for(var task in value.Tasks){
-            console.log(value)
-        }
+//         for(var task in value.Tasks){
+//             console.log(value)
+//         }
 
-            syno.Auth.Logout().then(function(data){
-                console.log("Deconnecté")
-            },function(reason){
-                    console.log("Pas Deconnecté")  
-            });
+//             syno.Auth.Logout().then(function(data){
+//                 console.log("Deconnecté")
+//             },function(reason){
+//                     console.log("Pas Deconnecté")  
+//             });
 
-    }, function(reason) {
+//     }, function(reason) {
 
-        console.log("Error : " + reason.Message)
+//         console.log("Error : " + reason.Message)
 
-    })
+//     })
 
-    // syno.DS.getConfiguration().then(function(value){console.log(value)},function(reason){console.log(reason)})
+    syno.DS.getInfo().then(function(value){console.log(value)},function(reason){console.log(reason)})
 
 
 
