@@ -7,7 +7,6 @@ function DownloadStation(server, auth) {
     this.auth = auth;
     this.utils = new Utils();
     this.URI = this.utils.CreateURI(server);
-
     this.Error = {
 
         "Common": {
@@ -44,7 +43,41 @@ function DownloadStation(server, auth) {
         }
 
     }
+}
 
+DownloadStation.prototype.getConfiguration = function(){
+    var dsSetting = this;
+    return new Promise(function(resolve, reject) {
+
+        var eligible = dsSetting.isEligible();
+
+        if (eligible.Success) {
+            HTTP.get(dsSetting.URI + "/webapi/DownloadStation/info.cgi?api=SYNO.DownloadStation.Task&version=1&method=getinfo&_sid=" + dsSetting.server.token, function(err, res) {
+                if (err) {
+                    reject({
+                        "Success": false,
+                        "Message": "Error Occured"
+                    });
+                }
+                else {
+                    var content = JSON.parse(res.buffer.toString())
+                    if (content.success) {resolve(content)} 
+                    else {
+                        reject({
+                            "Success": false,
+                            "Message": "Une erreur"
+                        });
+                    }
+                }
+            });
+        }
+         else {
+            reject({
+                "Success": false,
+                "Message": eligible.Message
+            })
+        }
+    })
 }
 
 
@@ -119,7 +152,6 @@ DownloadStation.prototype.getTasks = function(offset) {
 
 }
 
-
 DownloadStation.prototype.hasAPI = function() {
 
     var data = this.auth.getServices();
@@ -134,20 +166,11 @@ DownloadStation.prototype.hasAPI = function() {
 }
 DownloadStation.prototype.isEligible = function() {
 
-
     if (this.server.token != "") {
-
-        if (this.server.debug == true) {
-            console.log("You're login")
-        }
-
-        if (this.hasAPI()) {
-
-            return {
-                "Success": true
-            }
-
-        } else {
+        if (this.server.debug == true) {console.log("You're login")}
+        if (this.hasAPI()) {return {"Success": true}}
+        
+        else {
             if (this.server.debug == true) {
                 console.log("DownloadStation access is not allowed")
             }

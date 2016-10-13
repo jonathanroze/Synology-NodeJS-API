@@ -16,7 +16,7 @@ syno.Auth.Connect().then(function(value) {
         console.log("Success : " + value.Success)
 
         for(var task in value.Tasks){
-            console.log(value.Tasks[task])
+            console.log(value)
         }
 
             syno.Auth.Logout().then(function(data){
@@ -25,12 +25,13 @@ syno.Auth.Connect().then(function(value) {
                     console.log("Pas Deconnecté")  
             });
 
-
     }, function(reason) {
 
         console.log("Error : " + reason.Message)
 
     })
+
+    // syno.DS.getConfiguration().then(function(value){console.log(value)},function(reason){console.log(reason)})
 
 
 

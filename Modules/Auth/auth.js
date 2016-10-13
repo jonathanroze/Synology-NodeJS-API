@@ -76,7 +76,6 @@ Auth.prototype.Connect = function() {
 
     NAS = this;
 
-
     return new Promise(function(resolve, reject) {
         HTTP.get(NAS.URI + "/webapi/query.cgi?api=SYNO.API.Info&version=1&method=query&query=all", function(err, res) {
             if (err) {
