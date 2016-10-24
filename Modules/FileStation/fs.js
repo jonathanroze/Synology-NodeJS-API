@@ -1,4 +1,4 @@
-const Utils = require("./../../Modules/Utils/genericUtils.js");
+const Utils = require("./../../Modules/Utils/GenericUtils.js");
 const HTTP = require("http-request");
 var Promise = require('promise');
 
