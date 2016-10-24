@@ -45,6 +45,13 @@ function DownloadStation(server, auth) {
     }
 }
 
+DownloadStation.prototype.GetConfiguration = function(){
+
+
+    
+}
+
+
 DownloadStation.prototype.getInfo = function(){
     var dsSetting = this;
     return new Promise(function(resolve, reject) {

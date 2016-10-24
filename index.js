@@ -2,10 +2,10 @@ var Syno = require("./synologyAPI");
 
 var syno = new Syno(
     protocol = "HTTP",
-    address = "clowning.loginto.me", //IP Address or loginto.me address
+    address = "0.0.0.0", //IP Address or loginto.me address
     port = "5000",
     username = "admin",
-    password = "sopiket06",
+    password = "password",
     debug = true);
 
 syno.Auth.Connect().then(function(value) {
