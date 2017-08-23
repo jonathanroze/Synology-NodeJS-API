@@ -115,8 +115,10 @@ DownloadStation.prototype.getTasks = function(offset) {
 
                     var content = JSON.parse(res.buffer.toString())
 
-
-                    console.log(content.data.total)
+					if (this.server.debug == true) {
+                    	console.log('Total tasks : ' + content.data.total)
+					}
+					
                     if (content.success) {
 
                         resolve({
@@ -127,9 +129,11 @@ DownloadStation.prototype.getTasks = function(offset) {
                         });
 
                     } else {
-
-                        console.log(content)
-                        reject({
+						if (this.server.debug == true) {
+                        	console.log(content)
+						}
+						
+						reject({
                             "Success": false,
                             "Message": "Une erreur"
                         });
