@@ -49,20 +49,10 @@ function SynologyAPI(protocol, address, port, username, password, debug) {
         this.server.protocol = "HTTP"
     }
 
-    //Address verification
-    if (this.utils.IpValidator(address)) {
-        if (this.server.debug) {
-            console.log("Address : " + address)
-        }
-        this.server.address = address
-    } else {
-        if (this.server.debug) {
-            console.log("Address : Your address is not good".red)
-        }
-        this.server.success = false;
-        this.server.message = "Your address is not good"
-
+    if (this.server.debug) {
+        console.log("Address : " + address)
     }
+    this.server.address = address
 
     //Port verification
     if (port) {
